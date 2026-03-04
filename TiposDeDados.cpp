@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-#include <climits>
+#include <climits>  // Incluindo o cabeçalho para limites dos tipos
 using namespace std;
 
 int main()
@@ -58,7 +58,15 @@ int main()
 
 	cout << "Demonstracao de overflow:\n";
 	cout << "INT_MAX = " << INT_MAX << "\n";
-	cout << "INT_MAX + 1 = " << INT_MAX + 1 << "\n\n";
+
+	long long int_max_plus_one = static_cast<long long>(INT_MAX) + 1;
+	cout << "INT_MAX + 1 (armazenado em long long) = " << int_max_plus_one << "\n";
+
+	int overflow_example = INT_MAX;
+	cout << "\nDemonstracao pratica com variavel int:\n";
+	cout << "int x = INT_MAX = " << overflow_example << "\n";
+	overflow_example = overflow_example + 1;
+	cout << "x = x + 1 = " << overflow_example << " (overflow - agora é INT_MIN)\n\n";
 
 	cout << "Qualquer tecla para continuar...";
 	system("pause");
@@ -97,8 +105,8 @@ int main()
 	cout << "Digite a temperatura em graus celsius: ";
 	cin >> celsius;
 
-	fahrenheit = (celsius * 1.8) + 32;
-	kelvin = celsius + 273.15;
+	fahrenheit = (celsius * 1.8) + 32;  
+	kelvin = celsius + 273.15;        
 
 	cout << "\nResultados da conversao:" << endl;
 	cout << "------------------------" << endl;
@@ -115,5 +123,4 @@ int main()
 
 	cout << "\nQualquer tecla para sair...";
 	system("pause");
-
 }
